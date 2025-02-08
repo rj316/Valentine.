@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffdde1;
+            color: #d63384;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #no-btn {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="welcome">
+        <h1>Hey Love ❤️</h1>
+        <p>I have something special for you...</p>
+        <button onclick="showProposal()">Click Me</button>
+    </div>
+
+    <div class="container hidden" id="proposal">
+        <h1>Will you be my Valentine? 💖</h1>
+        <button onclick="acceptProposal()">Yes</button>
+        <button id="no-btn" onmouseover="moveNoButton()">No</button>
+    </div>
+
+    <div class="container hidden" id="accepted">
+        <h1>Yay! I love you! ❤️</h1>
+        <p>Can't wait for our special day together! 🥰</p>
+    </div>
+
+    <script>
+        function showProposal() {
+            document.getElementById('welcome').classList.add('hidden');
+            document.getElementById('proposal').classList.remove('hidden');
+        }
+
+        function acceptProposal() {
+            document.getElementById('proposal').classList.add('hidden');
+            document.getElementById('accepted').classList.remove('hidden');
+        }
+
+        function moveNoButton() {
+            let btn = document.getElementById('no-btn');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            btn.style.left = `${x}px`;
+            btn.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
 
